@@ -1,0 +1,192 @@
+{
+  "version": "1.0",
+  "title": "Script",
+  "scenes": [
+    {
+      "scene_type": "Theorem",
+      "id": "rolle",
+      "title_block": "",
+      "ambient": "Rt",
+      "acronym": "Rt",
+      "hypotheses": [
+        "a,b \\in \\mathbb R, \\quad a < b",
+        "f:[a,b] \\to \\mathbb R \\text{ continuous on } [a,b]",
+        "f \\text{ differentiable on } (a,b)",
+        "f(a) = f(b)"
+      ],
+      "thesis": "\\exists c \\in (a,b) \\quad s.t. \\quad f'(c) = 0",
+      "mixed_content": [
+        { "type": "Text", "content": "Let " },
+        { "type": "Equation", "latex": "a,b \\in \\mathbb R", "kind": "inline" },
+        { "type": "Text", "content": ", " },
+        { "type": "Equation", "latex": "a < b", "kind": "inline" },
+        { "type": "Text", "content": ". If " },
+        { "type": "Equation", "latex": "f:[a,b] \\to \\mathbb R", "kind": "inline" },
+        { "type": "Text", "content": " is a continuous function on the closed interval " },
+        { "type": "Equation", "latex": "[a,b]", "kind": "inline" },
+        { "type": "Text", "content": ", differentiable on the open interval " },
+        { "type": "Equation", "latex": "(a,b)", "kind": "inline" },
+        { "type": "Text", "content": " and " },
+        { "type": "Equation", "latex": "f(a)=f(b)", "kind": "inline" },
+        { "type": "Text", "content": ", then:" },
+        { "type": "Equation", "latex": "\\exists c \\in (a,b) \\quad s.t. \\quad f'(c) = 0.", "kind": "block" }
+      ],
+      "layout_hint": "stack_vertical",
+      "references": []
+    },
+    {
+      "scene_type": "Example",
+      "id": "rolle_graphical",
+      "title_block": "Graphical interpretation",
+      "ambient": "exx",
+      "steps_explanation": [
+        "Consider f(x) = sin(x) on [0, pi].",
+        "f is continuous on [0, pi], differentiable on (0, pi), and f(0) = f(pi) = 0.",
+        "By Rolle's theorem, there exists c in (0, pi) such that f'(c) = cos(c) = 0.",
+        "In particular, c = pi/2."
+      ],
+      "graphs": [
+        { "asset": "Screenshot 2026-06-07 at 12.40.56.png", "caption": "Graph of f(x) = sin(x) on [0, pi]" }
+      ],
+      "mixed_content": [
+        { "type": "Text", "content": "Let " },
+        { "type": "Equation", "latex": "f(x) = \\sin x", "kind": "inline" },
+        { "type": "Text", "content": ", where " },
+        { "type": "Equation", "latex": "x \\in [0, \\pi]", "kind": "inline" },
+        { "type": "Text", "content": ". Observe that f is continuous on [0,pi], differentiable on (0,pi) and " },
+        { "type": "Equation", "latex": "f(0)=f(\\pi)= 0", "kind": "inline" },
+        { "type": "Text", "content": ". Using Rolle's theorem we can conclude that there exists " },
+        { "type": "Equation", "latex": "c \\in (0,\\pi)", "kind": "inline" },
+        { "type": "Text", "content": " such that:" },
+        { "type": "Equation", "latex": "f'(c) = \\cos (c) = 0.", "kind": "block" },
+        { "type": "Text", "content": "In particular, " },
+        { "type": "Equation", "latex": "c = \\frac{\\pi}{2}", "kind": "inline" },
+        { "type": "Image", "asset": "Screenshot 2026-06-07 at 12.40.56.png", "caption": "Graphical interpretation" }
+      ],
+      "layout_hint": "two_columns",
+      "references": [
+        { "from_id": "rolle", "to_id": "rolle_graphical", "kind": "applies" }
+      ]
+    },
+    {
+      "scene_type": "Theorem",
+      "id": "lagrange",
+      "title_block": "",
+      "ambient": "Lg",
+      "acronym": "Lg",
+      "hypotheses": [
+        "a,b \\in \\mathbb R, \\quad a < b",
+        "f:[a,b] \\to \\mathbb R \\text{ continuous on } [a,b]",
+        "f \\text{ differentiable on } (a,b)"
+      ],
+      "thesis": "\\exists c \\in (a,b) \\quad s.t. \\quad f'(c) = \\frac{f(b)-f(a)}{b-a}",
+      "mixed_content": [
+        { "type": "Text", "content": "Let " },
+        { "type": "Equation", "latex": "a,b \\in \\mathbb R", "kind": "inline" },
+        { "type": "Text", "content": ", " },
+        { "type": "Equation", "latex": "a < b", "kind": "inline" },
+        { "type": "Text", "content": ". Let " },
+        { "type": "Equation", "latex": "f:[a,b] \\to \\mathbb R", "kind": "inline" },
+        { "type": "Text", "content": " be continuous on [a,b] and differentiable on (a,b). Then:" },
+        { "type": "Equation", "latex": "\\exists c \\in (a,b) \\quad s.t. \\quad f'(c) = \\frac{f(b)-f(a)}{b-a}.", "kind": "block", "label": "2" }
+      ],
+      "layout_hint": "stack_vertical",
+      "references": []
+    },
+    {
+      "scene_type": "Example",
+      "id": "lagrange_graphical",
+      "title_block": "Graphical interpretation",
+      "ambient": "exx",
+      "steps_explanation": [
+        "Consider f(x) = sin(x) on [0, 3pi/2].",
+        "f is continuous on [0, 3pi/2] and differentiable on (0, 3pi/2).",
+        "By Lagrange's mean value theorem, exists c in (0, 3pi/2) such that f'(c) = (f(3pi/2) - f(0)) / (3pi/2) = -2/(3pi).",
+        "Where f'(c) = cos(c)."
+      ],
+      "graphs": [
+        { "asset": "Screenshot 2026-06-11 at 22.27.13.png", "caption": "Graph of f(x) = sin(x) on [0, 3pi/2]" }
+      ],
+      "mixed_content": [
+        { "type": "Text", "content": "Consider the function " },
+        { "type": "Equation", "latex": "f(x) = \\sin x", "kind": "inline" },
+        { "type": "Text", "content": " for " },
+        { "type": "Equation", "latex": "x \\in \\left[0, \\frac{3\\pi}{2}\\right]", "kind": "inline" },
+        { "type": "Text", "content": ". The function f is continuous on [0, 3pi/2] and differentiable on (0, 3pi/2) so Lagrange's mean value theorem holds true:" },
+        { "type": "Equation", "latex": "\\exists c \\in \\left(0,\\frac{3\\pi}{2}\\right) \\quad s.t. \\quad f'(c) = \\frac{f\\left(\\frac{3\\pi}{2}\\right)-f(0)}{\\frac{3\\pi}{2}} = -\\frac{2}{3\\pi}", "kind": "block" },
+        { "type": "Text", "content": "where " },
+        { "type": "Equation", "latex": "f'(c) = \\cos c", "kind": "inline" },
+        { "type": "Image", "asset": "Screenshot 2026-06-11 at 22.27.13.png", "caption": "Graphical interpretation" }
+      ],
+      "layout_hint": "two_columns",
+      "references": [
+        { "from_id": "lagrange", "to_id": "lagrange_graphical", "kind": "applies" }
+      ]
+    },
+    {
+      "scene_type": "Observation",
+      "id": "obs_piecewise",
+      "title_block": "",
+      "ambient": "obs",
+      "notes": [
+        "The piecewise function f is not continuous on [0,6]: f(2) = lim_{x->2^-} = 2 != 0 = lim_{x->2^+}.",
+        "Thus Lagrange's MVT does not hold in this case, yet the conclusion holds for c = 9/2.",
+        "Lagrange's MVT is sufficient, not necessary, for the conclusion to hold.",
+        "Every x in (2,4) satisfies the conclusion: c is not uniquely defined."
+      ],
+      "mixed_content": [
+        { "type": "Text", "content": "Consider the piecewise function:" },
+        { "type": "Equation", "latex": "f(x) = \\left\\{ \\begin{array}{ll} -\\frac{1}{2}(x^2-4x) & \\text{if}\\ 0 \\le x \\le 2 \\\\[4pt] x-2 & \\text{if}\\ 2 < x < 4 \\\\[4pt] x^2-8x+18 & \\text{if}\\ 4 \\le x \\le 6 \\end{array} \\right.", "kind": "cases" },
+        { "type": "Text", "content": "Observe that f is not continuous on [0,6] because" },
+        { "type": "Equation", "latex": "f(2) = \\lim_{x \\to 2^-} f(x) = 2 \\neq 0 = \\lim_{x \\to 2^+} f(x)", "kind": "inline" },
+        { "type": "Text", "content": ", so the MVT doesn't hold, yet the conclusion holds and there exists " },
+        { "type": "Equation", "latex": "c = \\frac{9}{2}", "kind": "inline" },
+        { "type": "Text", "content": " such that" },
+        { "type": "Equation", "latex": "f'(c) = \\frac{f(6)-f(0)}{6}", "kind": "block", "label": "2" },
+        { "type": "Text", "content": "This means Lagrange's MVT is a sufficient but not necessary condition for the conclusion to hold. After the newpage, the graph of the piecewise function:" },
+        { "type": "Image", "asset": "Screenshot 2026-06-11 at 23.28.27.png", "caption": "Graph of the piecewise function" },
+        { "type": "Text", "content": "From the graph we can also observe that every x in (2,4) satisfies the conclusion, meaning that c is not univocally defined." }
+      ],
+      "layout_hint": "stack_vertical",
+      "references": [
+        { "from_id": "lagrange", "to_id": "obs_piecewise", "kind": "discusses" }
+      ]
+    },
+    {
+      "scene_type": "Observation",
+      "id": "obs_rotation",
+      "title_block": "",
+      "ambient": "obs",
+      "notes": [
+        "Lagrange's MVT resembles Rolle's theorem for functions rotated around the origin.",
+        "Problems arise when the function is not injective: after rotation it isn't a function anymore.",
+        "Considers the parabola f(x) = -x^2 + 4x on [0,3]; f is continuous on [0,3] and differentiable on (0,3).",
+        "MVT holds: exists c = 3/2 in (0,3) such that f'(c) = (f(3)-f(0))/3 = 1.",
+        "Rotating the function f clockwise by phi = -pi/4 around the origin yields a new curve.",
+        "The new coordinates (x', y') are obtained via a rotation matrix."
+      ],
+      "mixed_content": [
+        { "type": "Text", "content": "It would look like that Lagrange's mean value theorem resembles Rolle's theorem but for functions that are rotated around the origin. Problems arise when the function is not injective as when rotated it isn't a function anymore. Consider the parabola" },
+        { "type": "Equation", "latex": "f(x) = -x^2 + 4x", "kind": "inline" },
+        { "type": "Text", "content": "for " },
+        { "type": "Equation", "latex": "x \\in [0,3]", "kind": "inline" },
+        { "type": "Text", "content": ". f is a continuous function on [0,3] and differentiable on (0,3), meaning that the mean value theorem holds true and there exists " },
+        { "type": "Equation", "latex": "c = \\frac{3}{2} \\in (0,3)", "kind": "inline" },
+        { "type": "Text", "content": " such that" },
+        { "type": "Equation", "latex": "f'(c) = \\frac{f(3)-f(0)}{3} = 1", "kind": "block" },
+        { "type": "Text", "content": ". If we rotate f clockwise by the angle " },
+        { "type": "Equation", "latex": "\\varphi = -\\frac{\\pi}{4}", "kind": "inline" },
+        { "type": "Text", "content": " around the origin we obtain a new curve. First we write f like this:" },
+        { "type": "Equation", "latex": "x^2 - 4x + y = 0", "kind": "block" },
+        { "type": "Text", "content": ". Then we calculate the new coordinates " },
+        { "type": "Equation", "latex": "(x', y')", "kind": "inline" },
+        { "type": "Text", "content": " which are" },
+        { "type": "Equation", "latex": "\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} \\cos\\varphi & \\sin\\varphi \\\\[8pt] -\\sin\\varphi & \\cos\\varphi \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} \\frac{1}{\\sqrt{2}} & -\\frac{1}{\\sqrt{2}} \\\\[8pt] \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{2}} \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} \\frac{1}{\\sqrt{2}} x - \\frac{1}{\\sqrt{2}} y \\\\[8pt] \\frac{1}{\\sqrt{2}} x + \\frac{1}{\\sqrt{2}} y \\end{pmatrix}", "kind": "matrix" }
+      ],
+      "layout_hint": "stack_vertical",
+      "references": [
+        { "from_id": "lagrange", "to_id": "obs_rotation", "kind": "discusses" }
+      ]
+    }
+  ]
+}

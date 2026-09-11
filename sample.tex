@@ -1,0 +1,524 @@
+\documentclass[11pt,twoside]{article}
+
+\pagestyle{myheadings}
+
+\usepackage[a4paper, inner=2.5cm, outer=2.5cm]{geometry}
+
+\usepackage[english]{babel}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{xcolor}
+
+\usepackage{lipsum}
+
+
+
+% Use the same version number as for the public amsthm release.
+
+\def\instrdate{Giugno 2026}
+
+
+\title{Script}
+
+\author{Raffaele Bernardi}
+
+\date{}
+
+
+\providecommand{\qq}[1]{\textquotedblleft#1\textquotedblright}
+
+\providecommand{\mdash}{\textemdash\penalty\hyphenpenalty}
+
+
+% Some item adjustments
+
+
+\setlength\leftmargini{2em}
+
+\setlength\leftmarginii{1.5em}
+
+\renewcommand\labelitemii{$\circ$}
+
+
+% Embedded \index commands are a legacy from the time when this
+
+% documentation was part of amsldoc. Since they don't hurt anything,
+
+% let's leave them in. Maybe they will become useful again in the
+
+% future. [mjd,2000/06/06]
+
+
+\chardef\bslchar=`\\ % p. 424, TeXbook
+
+\newcommand{\ntt}{%
+
+  \fontfamily\ttdefault \fontseries\mddefault \fontshape\updefault
+
+  \selectfont
+
+}
+
+\DeclareRobustCommand{\cn}[1]{{\ntt\bslchar#1}}
+
+\DeclareRobustCommand{\cls}[1]{{\ntt#1}}
+
+\DeclareRobustCommand{\pkg}[1]{{\ntt#1}}
+
+\DeclareRobustCommand{\opt}[1]{{\ntt#1}}
+
+\DeclareRobustCommand{\env}[1]{{\ntt#1}}
+
+\DeclareRobustCommand{\fn}[1]{{\ntt#1}}
+
+
+\providecommand{\qedsymbol}{\leavevmode
+
+  \hbox to.77778em{%
+
+  \hfil\vrule
+
+  \vbox to.675em{\hrule width.6em\vfil\hrule}%
+
+  \vrule\hfil}}
+
+
+%%  Provide a meta-command facility; provide an alternate escape
+
+%%  character so it can be used within the verbatim environment.
+
+
+% \catcode`\|=0
+
+% \begingroup \catcode`\>=13 
+
+% \gdef\?#1>{{\normalfont$\langle$\textit{#1}$\rangle$}}
+
+% \gdef\0{\relax}
+
+% \endgroup
+
+% \def\<#1>{{\normalfont$\langle$\textit{#1}$\rangle$}}
+
+% \def\ntnote#1{{\normalfont$^{#1}$}\hangindent.5em}
+
+
+\hfuzz4pt \vbadness9999 \hbadness5000
+
+\def\latex/{{\protect\LaTeX}}
+
+
+\setlength{\textwidth}{210mm}\addtolength{\textwidth}{-2in}
+
+
+\addtolength{\textwidth}{-2\oddsidemargin}
+
+
+\usepackage[explicit]{titlesec}
+
+
+\setcounter{tocdepth}{2}
+
+\usepackage{amsthm}
+
+\usepackage{amssymb}
+
+\usepackage[leqno]{amsmath}
+
+\usepackage{mathrsfs}
+
+\usepackage{multicol}
+
+\usepackage{enumerate}
+
+\usepackage{color}
+
+\usepackage{tikz}
+
+\usepackage{tikz-cd}
+
+
+\usepackage{url}
+
+\usepackage[breaklinks]{hyperref}
+
+
+\newtheoremstyle{remark}
+
+{}{}
+
+{\normalfont}{}
+
+{\itshape}{.}
+
+{ }
+
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+
+\newtheoremstyle{theo}%
+
+{}{}%
+
+{\itshape}{}%
+
+{\bfseries}{.}%
+
+{ }%
+
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+
+\theoremstyle{theo}
+
+\newtheorem{theo}{Teo.}
+
+\newtheorem{lemma}{Lemma}
+
+\newtheorem{prop}{Prop.}
+
+\newtheorem*{Lgt}{Lagrange's mean value theorem}
+
+\newtheorem*{Rt}{Rolle's theorem}
+
+\newtheorem*{Fm}{Teorema di Fermat}
+
+
+\theoremstyle{definition}
+
+\newtheorem{defin}{Def.}
+
+\newtheorem{oss}{Oss.}
+
+\newtheorem{exe}{Es.}
+
+
+\theoremstyle{remark}
+
+\newtheorem{remark}{Remark}
+
+\newtheorem{example}{Es.}
+
+\newtheorem{exx}{Example}
+
+\newtheorem{obs}{Observation}
+
+
+\newcommand{\lf}{\left\lfloor}
+
+\newcommand{\rf}{\right\rfloor}
+
+\newcommand{\tc}{\quad \text{t.c.} \quad}
+
+
+\titleformat{\section}
+
+  {\Large\scshape\bfseries\centering}
+
+  {}
+
+  {0pt}
+
+  {\fcolorbox{red}{white}{\,\thesection\quad #1\,}}
+
+
+\titleformat{name=\section,numberless}
+
+  {\Large\scshape\bfseries\centering}
+
+  {}
+
+  {0pt}
+
+  {#1}
+
+
+\titleformat{\subsection}
+
+  {\large\bfseries}
+
+  {}
+
+  {0pt}
+
+  {\fcolorbox{red}{white}{\,\thesubsection\quad #1\,}}
+
+\renewcommand{\d}{\mathrm{d}}
+
+\DeclareMathOperator{\tg}{tg}
+
+\DeclareMathOperator{\atg}{arctg}
+
+\DeclareMathOperator{\Span}{Span}
+
+\DeclareMathOperator{\Ker}{Ker}
+
+\DeclareMathOperator{\Imm}{Im}
+
+
+
+\definecolor{BlueS}{HTML}{0f80aa}
+
+\definecolor{Cred}{HTML}{D90429}
+
+\definecolor{EGreen}{HTML}{4A7C59}
+
+\definecolor{DAmber}{HTML}{f25c54}
+
+\definecolor{APurple}{HTML}{973aa8}
+
+
+\definecolor{li}{HTML}{b8a4c9}
+
+\definecolor{fuc}{HTML}{d81159}
+
+\definecolor{viol}{HTML}{8f2d56}
+
+
+
+\usepackage{tcolorbox}
+
+\usepackage{witharrows}
+
+\usepackage{cleveref}
+
+\crefname{prop}{prop.}{propositions}
+
+\crefname{example}{es.}{propositions}
+
+
+
+\begin{document}
+
+\maketitle
+
+
+\begingroup
+
+\small
+
+\tableofcontents
+
+\endgroup
+
+
+\newpage 
+
+
+\section{Script}
+
+
+\begin{Rt}
+
+Let \(a,b\in \mathbb R\), \(a <b\). If \(f:[a,b]\to\mathbb R\) is a continuous function on the closed interval \([a,b]\), differentiable on the open interval \((a,b)\) and \(f(a)=f(b)\), then: 
+
+\begin{equation}
+
+\exists c\in (a,b) \quad s.t. \quad f'(c)= 0.
+
+\end{equation}
+
+\end{Rt}
+
+
+\
+
+
+\begin{exx}[Graphical interpretation]
+
+Let \(f(x) = \sin x\), where \(x\in [0,\pi]\). Observe that \(f\) is a continuous function on \([0,\pi]\), differentiable on \((0,\pi)\) and \(f(0)=f(\pi)= 0\). Using Rolle's theorem we can conclude that there exists \(c \in (0,\pi)\) such that: 
+
+$$
+
+f'(c) = \cos (c) = 0. 
+
+$$
+
+In particular, \(c=\frac\pi 2\.
+
+\begin{center}
+
+\includegraphics[width=0.9\textwidth]{Screenshot 2026-06-07 at 12.40.56.png}
+
+\end{center}
+
+\end{exx}
+
+
+\
+
+
+\begin{Lgt}
+
+Let \(a,b\in\mathbb R\), \(a<b\). Let \(f:[a,b]\to\mathbb R\) be a continuous function on the closed interval \([a,b]\), and differentiable on the open interval \((a,b)\). Then: 
+
+\begin{equation}\label{2}
+
+\exists c \in (a,b) \quad s.t. \quad f'(c) = \frac{f(b)-f(a)}{b-a}.
+
+\end{equation}
+
+Lagrange's mean value theorem is a generalization of Rolle's theorem. 
+
+\end{Lgt}
+
+
+\newpage
+
+
+\begin{exx}[Graphical interpretation]
+
+Consider the function \(f(x) = \sin x\) for \(x\in\left[0,\frac{3\pi}{2}\right]\). The function \(f\) is continuous on \(\left(0,\frac{3\pi}{2}\right)\) and differentiable on \(\left(0,\frac{3\pi}{2}\right)\)  so Lagrange's mean value theorem holds true: 
+
+$$
+
+\exists c \in \left(0,\frac{3\pi}{2}\right) \quad s.t. \quad f'(c) = \frac{f\left(\frac{3\pi}{2}\right)-f(0)}{\frac{3\pi}{2}} = -\frac{2}{3\pi},
+
+$$
+
+where \(f'(c)= \cos c\). 
+
+\begin{center}
+
+  \includegraphics[width=0.9\textwidth]{Screenshot 2026-06-11 at 22.27.13.png}
+
+\end{center}
+
+\end{exx}
+
+
+\
+
+
+\begin{obs}
+
+Consider the piecewise function: 
+
+$$
+
+f(x) = \left\{
+
+    \begin{array}{ll}
+
+      -\frac1 2(x^2-4x) & \text{if}\quad  0\le x  \le 2 
+
+      \\[4pt] x-2 & \text{if} \quad  2< x < 4
+
+      \\[4pt] x^2-8x+18 & \text{if} \quad  4\le x \le 6.
+
+\end{array}
+
+      \right. 
+
+$$
+
+Observe that \(f\) is not continuous on the closed interval \([0,6]\) because 
+
+$$
+
+f(2)= \lim_{x\to 2^-}f(x) = 2 \neq 0 = \lim_{x\to 2^+} f(x),
+
+$$
+
+so the mean value theorem doesn't hold in this case, yet the conclusion hold and there exists \(c= \frac9 2\) such that: 
+
+$$
+
+f'(c) = \frac{f(6)-f(0)}{6}. 
+
+$$
+
+This means that Lagrange's mean value theorem is a sufficient but not necessary condition for \cref{2} to hold true. 
+
+\newpage
+
+Take a look at the graph of the piecewise function previously defined: 
+
+\begin{center}
+
+  \includegraphics[width=0.9\textwidth]{Screenshot 2026-06-11 at 23.28.27.png}
+
+\end{center}
+
+From the graph we can also observe that every point \(x\) such that \(2< x < 4\) satisfies \cref{2}, meaning that \(c\) is not univocally defined. 
+
+\end{obs}
+
+
+\
+
+
+\begin{obs}
+
+  It would look like that Lagrange's mean value theorem resembles Rolle's theorem but for functions that are rotated around the origin. Problems arise when the function is not injective as when rotated it isn't a function anymore. Consider the parabola 
+
+$$
+
+  f(x) = -x^2+4x 
+
+$$
+
+for \(x\in [0,3]\). \(f\) is a continuous function on the closed interval \([0,3]\) and is differentiable on the open interval \((0,3)\), meaning that the mean value theorem holds true and there exists \(c=\frac3 2 \in (0,3)\) such that: 
+
+$$
+
+f'(c) = \frac{f(3)-f(0)}{3} = 1.
+
+$$
+
+If we rotate the function \(f\) clockwise by the angle \(\varphi = -\frac{\pi}{4}\) around the origin we obtain a new curve. First we write the function \(f\) like this: 
+
+$$
+
+x^2-4x +y = 0. 
+
+$$
+
+Then we calculate the new coordinates \((x',y')\) which are: 
+
+$$
+
+\begin{pmatrix}
+
+  x' \\ y' 
+
+\end{pmatrix} = 
+
+\begin{pmatrix}
+
+  \cos\varphi & \sin\varphi
+
+  \\ -\sin\varphi & \cos\varphi
+
+\end{pmatrix} \begin{pmatrix}
+
+  x \\ y 
+
+\end{pmatrix}  =
+
+\begin{pmatrix}
+
+  \frac1{\sqrt 2} & -\frac1{\sqrt 2}
+
+  \\[8pt] \frac1 {\sqrt 2} & \frac1{\sqrt 2}
+
+\end{pmatrix}\begin{pmatrix}
+
+  x \\ y 
+
+\end{pmatrix} = 
+
+\begin{pmatrix}
+
+  \frac1 {\sqrt 2} x -\frac{1}{\sqrt 2}y 
+
+  \\[8pt] \frac1 {\sqrt 2}x + \frac{1}{\sqrt 2}y
+
+\end{pmatrix}
+
+$$
+
+\end{obs}
+
+\end{document}
