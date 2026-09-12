@@ -223,7 +223,10 @@ fn extract_chunks(tex: &str) -> Vec<(String, String)> {
     }
 
     matches.sort_by_key(|(pos, _, _)| *pos);
-    matches.into_iter().map(|(_, env, raw)| (env, raw)).collect()
+    matches
+        .into_iter()
+        .map(|(_, env, raw)| (env, raw))
+        .collect()
 }
 
 /// JSON Schema describing the Rust `Scene` enum (internally tagged via
@@ -358,8 +361,8 @@ async fn generate_scene_json(
     acronym: &str,
     scene_id: &str,
 ) -> Result<Scene, Box<dyn std::error::Error>> {
-    let api_key = std::env::var("OPENAI_API_KEY")
-        .map_err(|_| "OPENAI_API_KEY not set in the environment")?;
+    let api_key =
+        std::env::var("OPENAI_API_KEY").map_err(|_| "OPENAI_API_KEY not set in the environment")?;
     let endpoint = "https://api.openai.com/v1/chat/completions";
 
     let scene_type = scene_kind_from_acronym(acronym);
@@ -457,9 +460,7 @@ async fn generate_scene_json(
 /// Returns the `id` of any `Scene` variant.
 fn scene_id_of(s: &Scene) -> &str {
     match s {
-        Scene::Theorem { id, .. }
-        | Scene::Example { id, .. }
-        | Scene::Observation { id, .. } => id,
+        Scene::Theorem { id, .. } | Scene::Example { id, .. } | Scene::Observation { id, .. } => id,
     }
 }
 
@@ -491,13 +492,22 @@ fn sanitize_equation(latex: &str) -> String {
     let mut s = latex.trim().to_string();
 
     // Strip $$ delimiters (display math).
-    s = s.trim_start_matches("$$").trim_end_matches("$$").to_string();
+    s = s
+        .trim_start_matches("$$")
+        .trim_end_matches("$$")
+        .to_string();
 
     // Strip \[ \] delimiters.
-    s = s.trim_start_matches("\\[").trim_end_matches("\\]").to_string();
+    s = s
+        .trim_start_matches("\\[")
+        .trim_end_matches("\\]")
+        .to_string();
 
     // Strip \( \) delimiters (inline math).
-    s = s.trim_start_matches("\\(").trim_end_matches("\\)").to_string();
+    s = s
+        .trim_start_matches("\\(")
+        .trim_end_matches("\\)")
+        .to_string();
 
     // Strip \begin{equation}...\end{equation} wrapper (keep inner content).
     if s.contains("\\begin{equation}") {
@@ -610,7 +620,9 @@ async fn main() {
         *count += 1;
 
         println!("\n{DIVIDER}");
-        println!("Generating scene with gpt-4o-2024-08-06 for chunk [{acronym}] (id={scene_id})...");
+        println!(
+            "Generating scene with gpt-4o-2024-08-06 for chunk [{acronym}] (id={scene_id})..."
+        );
         println!("{DIVIDER}\n");
 
         match generate_scene_json(chunk, acronym, &scene_id).await {
@@ -634,8 +646,8 @@ async fn main() {
     }
 
     // Sanitize all Equation segments: strip LaTeX delimiters, newlines, and
-// \begin{equation} wrappers so the stored `storyboard.json` is ready for
-// Manim's MathTex (no $$, no \[\], no \(\), no blank lines).
+    // \begin{equation} wrappers so the stored `storyboard.json` is ready for
+    // Manim's MathTex (no $$, no \[\], no \(\), no blank lines).
     for scene in generated_scenes.iter_mut() {
         sanitize_scene_segments(scene);
     }
@@ -654,8 +666,7 @@ async fn main() {
         title: "Script".into(),
         scenes: generated_scenes,
     };
-    let json = serde_json::to_string_pretty(&storyboard)
-        .expect("JSON serialization failed");
+    let json = serde_json::to_string_pretty(&storyboard).expect("JSON serialization failed");
     std::fs::write("storyboard.json", &json).unwrap_or_else(|e| {
         eprintln!("Error writing storyboard.json: {e}");
         process::exit(1);
